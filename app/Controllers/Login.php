@@ -44,6 +44,9 @@ class Login extends ResourceController
                     'firstname' => $data['firstname'],
                     'username' => $data['username'],
                     'email' => $data['email'],
+                    'qrcodeurl' => data['qrcodeurl'],
+                    'isactivated' => data['isactivated'],
+                    'isblocked' => data['isblocked'],
                     'token' => $token,
                     'isLoggedIn' => TRUE
                 ];
