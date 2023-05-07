@@ -44,16 +44,16 @@ class Login extends ResourceController
                     'firstname' => $data['firstname'],
                     'username' => $data['username'],
                     'email' => $data['email'],
-                    'qrcodeurl' => data['qrcodeurl'],
-                    'isactivated' => data['isactivated'],
-                    'isblocked' => data['isblocked'],
+                    'qrcodeurl' => $data['qrcodeurl'],
+                    'isactivated' => $data['isactivated'],
+                    'isblocked' => $data['isblocked'],
                     'token' => $token,
                     'isLoggedIn' => TRUE
                 ];
                 // $session->set($ses_data);
                 $response = [
-                    'status'   => 201,
-                    'messages' => 'Login successfully',
+                    'statuscode'   => 201,
+                    'message' => 'Login successfully',
                     'user' => $ses_data
                 ];
                 return $this->respondCreated($response);
@@ -62,8 +62,8 @@ class Login extends ResourceController
             }else{
                 // $session->setFlashdata('msg', 'Password is incorrect.');
                 $response = [
-                    'status'   => 404,
-                    'messages' => 'Password is incorrect'
+                    'statuscode'   => 404,
+                    'message' => 'Password is incorrect'
                 ];
                 return $this->respondCreated($response);
 
@@ -73,7 +73,7 @@ class Login extends ResourceController
             // $session->setFlashdata('msg', 'Email does not exist.');
             $response = [
                 'statuscode'   => 404,
-                'messages' => 'Username does not exist.'                
+                'message' => 'Username does not exist.'                
             ];
             return $this->respondCreated($response);
 
